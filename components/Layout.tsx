@@ -1,3 +1,5 @@
+import { Provider } from 'react-redux'
+import { storeConfig } from '../redux/store'
 import ReusableHead from './ReusabeHead'
 
 interface IProps { 
@@ -7,8 +9,10 @@ interface IProps {
 export default function Layout({ children }: IProps) {
     return (
         <>
-        <ReusableHead />
-        { children }
+        <Provider store={storeConfig}>
+            <ReusableHead />
+            { children }
+        </Provider>
         </>
     )
 }
